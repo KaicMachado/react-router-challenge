@@ -11,7 +11,7 @@ const ContentApp = styled.div`
  flex-direction: column;
  max-width: 45rem;
  margin: 0 auto;
- min-height: calc(100vh + 5rem);
+ min-height: calc(100vh + 1px);
 `;
 
 function App() {
