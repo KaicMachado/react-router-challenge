@@ -90,9 +90,7 @@ const Produto = () => {
      </div>
      <div>
       <h2
-       style={{
-        fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-       }}
+       style={{ fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif" }}
       >
        {produto.nome}
       </h2>

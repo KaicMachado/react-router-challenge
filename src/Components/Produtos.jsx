@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { animeLeft } from "./Animacao";
 
 const Container = styled.div`
@@ -51,7 +51,7 @@ const Produtos = () => {
    <Container>
     {dados &&
      dados.map((produto) => (
-      <NavLink
+      <Link
        to={produto.id}
        key={produto.id}
        style={{ textDecoration: "none", color: "#000" }}
@@ -60,7 +60,7 @@ const Produtos = () => {
         <CardImg src={produto.fotos[0].src} alt="" />
         {produto.nome}
        </Card>
-      </NavLink>
+      </Link>
      ))}
    </Container>
   </Conteudo>
