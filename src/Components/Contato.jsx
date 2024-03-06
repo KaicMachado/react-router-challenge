@@ -41,7 +41,6 @@ const Contato = () => {
     <title>Desafio | Contato </title>
     <meta name="description" content="Produtos da Página" />
    </Helmet>
-   <Header />
    <Container>
     <img
      style={{ height: "450px", width: "300px", borderRadius: "8px" }}

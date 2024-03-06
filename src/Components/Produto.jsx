@@ -81,7 +81,6 @@ const Produto = () => {
     <title>{`Desafio | ${produto.nome} `}</title>
     <meta name="description" content="Produtos da Página" />
    </Helmet>
-   <Header />
    {loading ? (
     <LoaderWrapper>
      <Loader />

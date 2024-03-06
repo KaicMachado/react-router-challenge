@@ -4,6 +4,7 @@ import Contato from "./Components/Contato";
 import Produto from "./Components/Produto";
 import Footer from "./Components/Footer";
 import styled from "styled-components";
+import Header from "./Components/Header";
 
 const ContentApp = styled.div`
  display: flex;
@@ -17,13 +18,14 @@ function App() {
  return (
   <ContentApp>
    <BrowserRouter>
+    <Header />
     <Routes>
      <Route path="/" element={<Produtos />} />
      <Route path="produto/:id" element={<Produto />} />
      <Route path="contato" element={<Contato />} />
     </Routes>
+    <Footer />
    </BrowserRouter>
-   <Footer />
   </ContentApp>
  );
 }

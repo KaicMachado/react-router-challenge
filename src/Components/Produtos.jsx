@@ -44,7 +44,6 @@ const Produtos = () => {
     <title>Desafio | Produtos</title>
     <meta name="description" content="Produtos da Página" />
    </Helmet>
-   <Header />
    <Container>
     {dados &&
      dados.map((produto) => (
