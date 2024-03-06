@@ -40,6 +40,7 @@ const Produtos = () => {
    .then((json) => setDados(json));
  }, []);
 
+ if (dados === null) return null;
  return (
   <Conteudo>
    <Helmet>
