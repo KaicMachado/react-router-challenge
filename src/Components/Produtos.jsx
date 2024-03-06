@@ -52,7 +52,7 @@ const Produtos = () => {
     {dados &&
      dados.map((produto) => (
       <Link
-       to={produto.id}
+       to={`produto/${produto.id}`}
        key={produto.id}
        style={{ textDecoration: "none", color: "#000" }}
       >
