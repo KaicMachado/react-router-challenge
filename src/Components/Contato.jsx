@@ -27,19 +27,22 @@ const ListaItem = styled.li`
  }
 `;
 
-const Conteudo = styled.div`
+const Container = styled.div`
+ display: flex;
+ justify-content: center;
+ gap: 1rem;
  animation: ${animeLeft} 0.3s forwards;
 `;
 
 const Contato = () => {
  return (
-  <Conteudo>
+  <div>
    <Helmet>
     <title>Desafio | Contato </title>
     <meta name="description" content="Produtos da Página" />
    </Helmet>
    <Header />
-   <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
+   <Container>
     <img
      style={{ height: "450px", width: "300px", borderRadius: "8px" }}
      src={FotoContato}
@@ -60,8 +63,8 @@ const Contato = () => {
       <ListaItem>Rua Ali Perto, 342</ListaItem>
      </Lista>
     </div>
-   </div>
-  </Conteudo>
+   </Container>
+  </div>
  );
 };
 

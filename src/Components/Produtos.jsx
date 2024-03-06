@@ -12,6 +12,7 @@ const Container = styled.div`
  max-width: 800px;
  justify-content: center;
  margin: 0 auto;
+ animation: ${animeLeft} 0.3s forwards;
 `;
 
 const Card = styled.li`
@@ -28,10 +29,6 @@ const CardImg = styled.img`
  border-radius: 6px;
 `;
 
-const Conteudo = styled.div`
- animation: ${animeLeft} 0.3s forwards;
-`;
-
 const Produtos = () => {
  const [dados, setDados] = useState("");
  React.useEffect(() => {
@@ -42,7 +39,7 @@ const Produtos = () => {
 
  if (dados === null) return null;
  return (
-  <Conteudo>
+  <div>
    <Helmet>
     <title>Desafio | Produtos</title>
     <meta name="description" content="Produtos da Página" />
@@ -63,7 +60,7 @@ const Produtos = () => {
       </Link>
      ))}
    </Container>
-  </Conteudo>
+  </div>
  );
 };
 

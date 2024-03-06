@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Header from "./Header";
 import { Helmet } from "react-helmet";
+import { animeLeft } from "./Animacao";
 
 const ImgProduto = styled.img`
  width: 200px;
@@ -12,9 +13,11 @@ const ImgProduto = styled.img`
 
 const Container = styled.div`
  display: flex;
+ flex-direction: column;
  width: 50%;
  margin: 0 auto;
  gap: 1.5rem;
+ animation: ${animeLeft} 0.3s forwards;
 `;
 
 const PrecoProduto = styled.p`
@@ -57,16 +60,20 @@ const Produto = () => {
 
  React.useEffect(() => {
   async function puxaDados() {
-   const response = await fetch(
-    `https://ranekapi.origamid.dev/json/api/produto/${params.id}`
-   );
-   const json = await response.json();
-   setProduto(json);
-   setLoading(false);
+   try {
+    const response = await fetch(
+     `https://ranekapi.origamid.dev/json/api/produto/${params.id}`
+    );
+    const json = await response.json();
+    setProduto(json);
+   } finally {
+    setLoading(false);
+   }
   }
   puxaDados();
  }, [params]);
 
+ if (produto === null) return null;
  return (
   <div>
    <Helmet>
@@ -80,28 +87,17 @@ const Produto = () => {
     </LoaderWrapper>
    ) : (
     <Container>
-     <div>
-      <ImgProduto
-       src={
-        produto.fotos && produto.fotos.length > 0 ? produto.fotos[0].src : ""
-       }
-       alt={`Foto do ${produto.nome}`}
-      />
+     <div style={{ display: "flex", gap: "1rem" }}>
+      {produto.fotos.map((foto) => (
+       <ImgProduto key={foto.src} src={foto.src} alt={foto.titulo}></ImgProduto>
+      ))}
      </div>
-     <div>
-      <h2
-       style={{ fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif" }}
-      >
-       {produto.nome}
-      </h2>
+     <div
+      style={{ fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif" }}
+     >
+      <h2>{produto.nome}</h2>
       <PrecoProduto>R$ {produto.preco}</PrecoProduto>
-      <h3
-       style={{
-        fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-       }}
-      >
-       {produto.descricao}
-      </h3>
+      <h3>{produto.descricao}</h3>
      </div>
     </Container>
    )}
