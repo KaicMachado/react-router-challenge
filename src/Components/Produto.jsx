@@ -23,7 +23,8 @@ const Container = styled.div`
 const PrecoProduto = styled.p`
  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
  font-weight: 600;
- background: #7fff00;
+ background: #91fb5d;
+ color: #017e01;
  width: max-content;
  border-radius: 8px;
  padding: 6px 8px;
